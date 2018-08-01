@@ -103,7 +103,7 @@ a {
 #preload-overlay {
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: rgb(170, 240, 242);
     position: fixed;
     top: 0;
     left: 0;
@@ -131,7 +131,7 @@ a {
     width: 100px;
     height: 100px;
     border-top: 5px solid rgb(6, 35, 249);
-    border-bottom: 5px solid rgb(121, 4, 171);
+    border-bottom: 5px solid rgb(6, 35, 249);
     -webkit-animation: clockwisespin 15s linear infinite;
     animation: clockwisespin 15s linear infinite;
 }
@@ -139,8 +139,8 @@ a {
 .loader2 {
     width: 90px;
     height: 90px;
-    border-left: 5px dotted #5afcf1;
-    border-right: 5px dotted #ffff2b;
+    border-left: 5px dotted #6b11a4;
+    border-right: 5px dotted #6d0101;
     top: 5px;
     left: 5px;
     -webkit-animation: anticlockwisespin 10s linear infinite;
