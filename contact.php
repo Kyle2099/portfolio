@@ -14,7 +14,7 @@
     if(mail($to, $subject, $message_format, $headers)){
       echo "success";
     }else{
-      echo "The server failed to send teh message. Please try again later.";
+      echo "The server failed to send the message. Please try again later.";
     }
   }
 ?>
