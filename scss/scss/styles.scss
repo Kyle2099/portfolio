@@ -1,0 +1,686 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+
+//If you want to change the color and font family instead of changing it in this page please visit the variable.scss as it will make your life a lot easier :).
+
+/***********************************UNIVERSAL STYLES***********************************/
+
+body{
+    font-family: $main-font;
+    color: $primary-color;
+}
+
+.container{
+    @include mQ(760px){
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+}
+
+.section-title{
+    font-size: $heading-1;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.accent-text{
+    font-family: $accent-font;
+    color: $accent-color;
+}
+
+//The styling for the main navigation links to see what page your on
+.active{
+    color: $accent-color;
+}
+
+//The styling clicked filter buttons for the image gallery
+.is-checked{
+    color: $accent-color;
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p{
+    font-size: $paragraph-size;
+    line-height: 1.6;
+    color: $seconary-color;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    display: inline-block;
+}
+
+a{
+    text-decoration: none;
+}
+
+/***********************************SCROLL BAR STYLES***********************************/
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $seconary-color;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $accent-color;
+}
+
+/***********************************PRELOAD PAGE***********************************/
+
+#preload-overlay{
+    width: 100%;
+    height: 100%;
+    background: $main-background;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.loader-frame{
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+
+.loader1, .loader2{
+    position: absolute;
+    border: 5px solid transparent;
+    border-radius: 50%;
+}
+
+.loader1{
+    width: 100px;
+    height: 100px;
+    border-top: 5px solid $accent-color;
+    border-bottom: 5px solid $accent-color;
+    animation: clockwisespin 5s linear infinite;
+}
+
+.loader2{
+    width: 90px;
+    height: 90px;
+    border-left: 5px dotted $primary-color;
+    border-right: 5px dotted $primary-color;
+    top: 5px;
+    left: 5px;
+    animation: anticlockwisespin 5s linear infinite;
+}
+
+@keyframes clockwisespin{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+@keyframes anticlockwisespin{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(-360deg);}
+}
+
+@keyframes fadeout{
+    from{opactity: 1;}
+    to{opacity: 0;}
+}
+
+/***********************************HEADER STYLES***********************************/
+
+#main-header {
+    position: fixed;
+    max-height: 70px;
+    width: 100%;
+    padding: 20px 0 10px 0;
+    z-index: 900;
+    background: $main-background;
+    border-bottom: 1px $accent-color solid;
+    overflow: hidden;
+    
+    @include mQ(760px) {
+        padding-top: 25px;
+    }
+    
+}
+
+.open-nav {
+    max-height: 400px !important;
+    .mobile-toggle {
+        transform: rotate(-90deg);
+    }
+}
+
+.logo{
+    float: left;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1;
+    font-size: 27pt;
+    font-weight: bold;
+    color: $accent-color;
+    font-family: $accent-font;
+    
+    @include mQ(760px) {
+        float: none;
+    }
+}
+
+#main-header nav{
+    width: 80%;
+    float: right;
+    
+    @include mQ(760px) {
+        width: 100%;
+    }
+
+    ul{
+    float: right;
+    overflow: hidden;
+    list-style: none;
+    text-align: right;
+        
+    @include mQ(760px) {
+        width: 100%;
+        float: left;
+        padding-top: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+
+    }
+
+        li{
+            display: inline-block;
+            margin-left: 20px;
+            line-height: 1.5;
+            
+            @include mQ(760px){//760px
+                width: 100%;
+                padding: 10px 0;
+                margin: 0;
+            }
+        }
+        a{
+            color: $primary-color;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .active{
+            color: $accent-color;
+        }
+
+        a:hover{
+            color: $accent-color;
+        }
+    }
+}
+
+.mobile-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 22px;
+    top: 0;
+    width: 30px;
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+    
+    @include mQ(760px) {
+        display: block;
+    }
+
+    span {
+        width: 30px;
+        height: 4px;
+        margin-bottom: 6px;
+        border-radius: 1000px;;
+        background: $primary-color;
+        display: block;
+    }
+}
+
+.header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 25px;
+}
+
+/***********************************HERO STYLES***********************************/
+
+#hero{
+    background:url('../img/hero8.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    position: relative;
+}
+
+#particles-js{
+    width: 100%;
+    height: 100%;
+}
+
+.hero-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    h1{
+        font-size: 50px;
+        color: #fff;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    
+    h2{
+        font-size: 30px;
+        color: #bfbfbf;
+    }
+    
+    .download{
+        color: #bfbfbf;
+        background: none;
+        border: 1px $accent-color solid;
+        border-radius: 1000px;
+        padding: 10px;
+        transition: border-color 0.3s ease;
+        cursor: pointer;
+        
+        a{
+            color: #bfbfbf;
+            font-size: $paragraph-size;
+        }
+        
+        &:hover{
+            border-color: #bfbfbf;
+        }
+    }
+}
+
+.hero-content img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 3px $accent-color solid;
+    @include mQ(768px){
+        width: 200px;
+        height: 200px;
+    }
+    
+}
+
+/***********************************ABOUT STYLES***********************************/
+
+.about-text{
+    opacity: 0;
+    transform: translateX(25px);
+    transition: all .3s ease-out;
+}
+
+.about-text-animate{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-social{
+    margin-top:20px;
+    margin-bottom: 20px;
+    
+    li{
+        padding-right: 20px;
+    }
+    
+    .fab, .far{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 20px;
+        border: 1px $seconary-color solid;
+        border-radius: 50%;
+        color: $primary-color;
+        transition: color 0.3s ease;
+        cursor: pointer;
+        
+        &:hover{
+            color: $accent-color;
+        }
+    }
+}
+
+.skill-progress-container p{
+    color: $primary-color;
+}
+
+.skill-progress-container, .eduction-block{
+    margin-bottom: 15px;
+    padding-left: 16px;
+    width: 80%;
+}
+
+.skill-bar{
+    position: relative;
+    width: 100%;
+    height: 5px;
+    margin-top: 5px;
+    background: $seconary-color;
+}
+
+.bar-percent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+    
+}
+
+.inner-percent{
+    height: inherit;
+    width: 0;
+    background: $accent-color;
+    transition: all .3s linear;
+}
+
+.inner-percent-animate{
+    width: 100%;
+}
+
+.development{
+    width: 63%;
+    
+}
+
+.design{
+    width: 86%;
+}
+
+.marketing{
+    width: 79%;
+}
+
+/***********************************SERVICES STYLES***********************************/
+
+#services{
+    background: $seconary-background;
+}
+
+//This is the block that contains the icon, header, and text for each service
+.service-block{
+    padding: 20px;
+    
+    .icon{
+        color: $accent-color;
+        font-size: 40px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all .3s ease-out;
+    }
+    
+    .service-icon-animate{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hb{ //Stands for horizontal border
+    &:nth-child(1),&:nth-child(2),&:nth-child(3){
+        border-bottom: 1px $seconary-color solid;
+    }
+    
+    @include mQ(991px){
+        &:nth-child(-n+4){
+            border-bottom: 1px $seconary-color solid;
+        }
+    }
+    
+    @include mQ(768px){
+        &:nth-child(5){
+            border-bottom: 1px $seconary-color solid;
+        }
+    }
+    
+}
+
+.vb{ //stands for vertical border
+    &:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5){
+        border-right: 1px $seconary-color solid;
+    }
+
+    @include mQ(991px){
+        &:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5){
+            border-right: none;
+        }
+        &:nth-child(2n+1){
+            border-right: 1px $seconary-color solid;
+        }
+    }
+    @include mQ(768px){
+        &:nth-child(-n+6){
+            border-right: none;
+        }
+    }
+}
+
+/***********************************PORTFOLIO STYLES***********************************/
+
+.img-grid{
+    //max-height: 600px;
+    //overflow: auto;
+}
+
+
+#filter-btn{
+    margin-bottom: 40px;
+    
+    ul{
+        text-align: center;
+    }
+    
+    li{
+        padding-right: 20px;
+        
+        @include mQ(760px){
+            display: block;
+            margin-top: 10px;
+        }
+    }
+    
+    .button{
+        border: 1px $seconary-color solid;
+        padding: 10px 30px 10px 30px;
+        border-radius: 500px;
+        background: none;
+        cursor: pointer;
+        outline: none;
+        transition: all .3s ease-out;
+        
+        &:hover{
+            color: $accent-color;
+        }
+    }
+}
+
+.img-container{
+    position: relative;
+    width: 30%;
+    margin: 10px;
+    height: auto;
+    
+    img{
+        border-radius: 10px;
+    }
+    
+    @include mQ(760px){
+        width: 100%;
+     }
+}
+
+.img-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(229, 46, 45, .3);
+    border-radius: 10px;
+    outline: 1px solid $main-background;
+    outline-offset: -15px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+    opacity: 0;
+    
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.img-overlay-text{
+    position: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    
+    h3{
+        margin: 0;
+    }
+    
+    p{
+        color: #fff;
+    }
+}
+
+/***********************************CLIENT STYLES***********************************/
+
+#client{
+    background:url('../img/img3.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.testimonial-block{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    p{
+        &:nth-child(1){
+            color: white;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }  
+    }
+}
+
+
+/***********************************CONTACT STYLES***********************************/
+
+#contact{
+    background: $seconary-background;
+}
+
+//This is the block that information on the left of the contact form
+//There are three blocks one for Call, Email, and Address
+.contact-block{
+    height: 50px;
+    margin-bottom: 150px;
+    
+    @include mQ(768px){
+        margin-bottom: 40px;
+    }
+}
+
+//The icon in the contact-block
+.contact-block .fas, .contact-block .far{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 25px;
+    border: 1px $seconary-color solid;
+    border-radius: 50%;
+    color: $primary-color;
+    float: left;
+}
+
+.contact-text{
+    float: left;
+    padding-left: 16px;
+    p:first-child{
+        text-align: left;
+        color: $primary-color;
+        font-weight: bold;
+    }
+}
+
+.field{
+    width: 100%;
+    text-align: left;
+    margin-top: 15px;
+}
+
+input[type=text]{
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    height: 45px;
+    font-size: 1.2em;
+    background: $seconary-background;
+    border: 1px $seconary-color solid;
+    color: $seconary-color;
+}
+
+textarea{
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    font-size: 1.2em;
+    background: $seconary-background;
+    border: 1px $seconary-color solid;
+    color: $seconary-color;
+}
+
+#contact-submit{
+    padding: 10px;
+    background: none;
+    border: 1px $seconary-color solid;
+    cursor: pointer;
+    font-size: 1.2em;
+    float: right;
+}
+
+/***********************************FOOTER STYLES***********************************/
+
+footer{
+    background: #111;
+    padding: 12px 0 12px 0;
+    text-align: center;
+}
+
