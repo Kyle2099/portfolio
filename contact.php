@@ -5,7 +5,7 @@
     $email = $_POST['email'];
     $subject = $_POST['subject'];
     $message = nl2br($_POST['message']);
-    $to = "your@gmail.com";
+    $to = "ksoutherbruno@gmail.com";
     $from = $email;
     $message_format = '<b>Name:</b> '.$name.' <br><b>Email:</b> '.$email.' <p>'.$message.'</p>';
     $headers = "From: $from\n";
